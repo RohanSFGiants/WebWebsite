@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Photo Filter</title>
+	<style type="text/css">
+		body{
+			text-align:center;
+			color:rgb(72, 244, 66);
+
+		}
+
+		img{
+			max-width:150px;
+		}
+
+
+	</style>
+</head>
+<body>
+<script type="text/javascript">
+function get_photo() {
+var url=document.getElementById("image_url").value
+var image=document.createElement("img")
+image.setAttribute("src",url)
+image.setAttribute("id","photo")
+var container=document.getElementById("image_container")
+container.appendChild(image)
+}
+
+function change_blur() {
+let photo = document.getElementById("photo")
+			let blurVal = document.getElementById("blur_slider").value
+			photo.style.filter = "blur(" + blurVal + "px)"
+
+
+}
+
+function change_brightness() {
+let photo = document.getElementById("photo")
+let brightnessVal = document.getElementById("brightness_slider").value
+photo.style.filter = "brightness(" + brightnessVal + "%)"
+
+}
+
+function change_contrast() {
+let photo = document.getElementById("photo")
+let contrastVal = document.getElementById("contrast_slider").value
+photo.style.filter = "contrast(" + contrastVal + "%)"
+
+
+}
+
+function change_grey() {
+let photo = document.getElementById("photo")
+let greyVal = document.getElementById("grey_slider").value
+photo.style.filter ="grayscale(" + greyVal + "%)"
+}
+
+function change_hue() {
+let photo = document.getElementById("photo")
+let hueVal = document.getElementById("hue_slider").value
+photo.style.filter ="hue-rotate(" + hueVal + "deg)"
+
+}
+
+function change_inversion() {
+let photo = document.getElementById("photo")
+let inversionVal = document.getElementById("inversion_slider").value
+photo.style.filter ="invert(" + inversionVal + "%)"
+}
+
+function change_sepia() {
+let photo = document.getElementById("photo")
+let sepiaVal = document.getElementById("sepia_slider").value
+photo.style.filter ="sepia(" + sepiaVal + "%)"
+}
+function hudson() {
+let photo = document.getElementById("photo")
+photo.style.filter = "contrast(90%) brightness(120%) saturate(110%) hue-rotate(0deg) sepia(0%)"
+
+}
+
+function aden() {
+let photo = document.getElementById("photo")
+photo.style.filter = "contrast(50%) brightness(180%) saturate(190%) hue-rotate(9deg) sepia(54%)"
+
+}
+
+function raise() {
+let photo = document.getElementById("photo")
+photo.style.filter = "contrast(80%) brightness(220%) saturate(100%) hue-rotate(8deg) sepia(99%)"
+
+}	
+</script>
+<h1>Filter Your Photo</h1>
+image url:<input type="text" id="image_url"> 
+<button onclick="get_photo()">submit</button>
+<br>
+blur:<input type="range" id="blur_slider" min="0" max="10" oninput="change_blur()">
+<br>
+brightness:<input type="range" id="brightness_slider" min="0" max="10" oninput="change_brightness()">
+<br>
+contrast:<input type="range" id="contrast_slider" min="0" max="10" oninput="change_contrast()">
+<br>
+grey:<input type="range" id="grey_slider" min="0" max="10" oninput="change_grey()">
+<br>
+hue:<input type="range" id="hue_slider" min="0" max="10" oninput="change_hue()">
+<br>
+inversion:<input type="range" id="inversion_slider" min="0" max="10" oninput="change_inversion()">
+<br>
+sepia:<input type="range" id="sepia_slider" min="0" max="10" oninput="change_sepia()">
+
+
+<br>
+<button onclick="hudson()">hudson</button>
+<br>
+<button onclick="aden()">aden</button>
+<br>
+<button onclick="raise()">raise</button>
+<div id="image_container"></div>
+</body>
+</html>
